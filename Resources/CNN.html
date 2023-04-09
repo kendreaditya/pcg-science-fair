@@ -1,0 +1,36 @@
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">CNN_A</span>(pblm<span style="color: #333333">.</span>PrebuiltLightningModule):
+    <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">__init__</span>(<span style="color: #007020">self</span>, denoising<span style="color: #333333">=</span><span style="color: #007020">False</span>):
+        <span style="color: #007020">super</span>()<span style="color: #333333">.</span>__init__(<span style="color: #007020">self</span><span style="color: #333333">.</span>__class__<span style="color: #333333">.</span>__name__)
+
+        <span style="color: #888888"># Model Layer Declaration</span>
+        <span style="color: #007020">self</span><span style="color: #333333">.</span>conv1 <span style="color: #333333">=</span> nn<span style="color: #333333">.</span>Conv1d(<span style="color: #0000DD; font-weight: bold">1</span>, <span style="color: #0000DD; font-weight: bold">16</span>, kernel_size<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">5</span>, stride<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">2</span>)
+        <span style="color: #007020">self</span><span style="color: #333333">.</span>conv2 <span style="color: #333333">=</span> nn<span style="color: #333333">.</span>Conv1d(<span style="color: #0000DD; font-weight: bold">16</span>, <span style="color: #0000DD; font-weight: bold">32</span>, kernel_size<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">5</span>, stride<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">2</span>)
+        <span style="color: #007020">self</span><span style="color: #333333">.</span>conv3 <span style="color: #333333">=</span> nn<span style="color: #333333">.</span>Conv1d(<span style="color: #0000DD; font-weight: bold">32</span>, <span style="color: #0000DD; font-weight: bold">64</span>, kernel_size<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">5</span>, stride<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">2</span>)
+        <span style="color: #007020">self</span><span style="color: #333333">.</span>dense1 <span style="color: #333333">=</span> nn<span style="color: #333333">.</span>Linear(<span style="color: #0000DD; font-weight: bold">64</span><span style="color: #333333">*</span><span style="color: #0000DD; font-weight: bold">309</span>, <span style="color: #0000DD; font-weight: bold">512</span>)
+        <span style="color: #007020">self</span><span style="color: #333333">.</span>dense2 <span style="color: #333333">=</span> nn<span style="color: #333333">.</span>Linear(<span style="color: #0000DD; font-weight: bold">512</span>, <span style="color: #0000DD; font-weight: bold">256</span>)
+        <span style="color: #007020">self</span><span style="color: #333333">.</span>dense3 <span style="color: #333333">=</span> nn<span style="color: #333333">.</span>Linear(<span style="color: #0000DD; font-weight: bold">256</span>, <span style="color: #0000DD; font-weight: bold">3</span>)
+
+    <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">forward</span>(<span style="color: #007020">self</span>, x):
+
+        x <span style="color: #333333">=</span> x<span style="color: #333333">.</span>reshape(x<span style="color: #333333">.</span>shape[<span style="color: #0000DD; font-weight: bold">0</span>], <span style="color: #0000DD; font-weight: bold">1</span>, <span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>)
+
+        <span style="color: #888888"># Convolutional Layer</span>
+        x <span style="color: #333333">=</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>conv1(x)
+        x <span style="color: #333333">=</span> nn<span style="color: #333333">.</span>functional<span style="color: #333333">.</span>relu(x)
+        x <span style="color: #333333">=</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>conv2(x)
+        x <span style="color: #333333">=</span> nn<span style="color: #333333">.</span>functional<span style="color: #333333">.</span>relu(x)
+        x <span style="color: #333333">=</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>conv3(x)
+        x <span style="color: #333333">=</span> nn<span style="color: #333333">.</span>functional<span style="color: #333333">.</span>relu(x)
+
+        <span style="color: #888888"># Flattening</span>
+        x <span style="color: #333333">=</span> x<span style="color: #333333">.</span>reshape(x<span style="color: #333333">.</span>shape[<span style="color: #0000DD; font-weight: bold">0</span>], <span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>)
+
+        <span style="color: #888888"># Dense Layers</span>
+        x <span style="color: #333333">=</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>dense1(x)
+        x <span style="color: #333333">=</span> nn<span style="color: #333333">.</span>functional<span style="color: #333333">.</span>relu(x)
+        x <span style="color: #333333">=</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>dense2(x)
+        x <span style="color: #333333">=</span> nn<span style="color: #333333">.</span>functional<span style="color: #333333">.</span>relu(x)
+        x <span style="color: #333333">=</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>dense3(x)
+
+        <span style="color: #008800; font-weight: bold">return</span> x
+</pre></div>

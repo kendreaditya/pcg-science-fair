@@ -1,0 +1,155 @@
+- Keywords: #[[📋 Projects]]
+Due Date: [[April 19th, 2021]]
+Goal: 
+- :hiccup [:hr {:style {:borderColor "#bfccd6" :margin "0.75em 0em 0"}}]
+- [[TODOs]] #[[📋 Projects]]
+    - {{[[TODO]]}} Dataset prepration
+        - All data samples (including generated) go same pre processing step
+            - Use a conditional GAN
+    - {{[[TODO]]}} compare pascel dataset a and b metrics
+    - {{[[TODO]]}} research audio pre processing teq for reamoval of noise
+        - just make a gan lol and feed it noise+pcg and label is pcg lmao
+    - {{[[TODO]]}} look at dangers of ECG authomus recongtiong
+    - {{[[TODO]]}} visualize dense layers like [this](https://playground.tensorflow.org/)
+    - {{[[TODO]]}} Problem: optimize cross entropy for classifier/discriminator
+    - {{[[TODO]]}} Same domain AE
+        - use same encoder/decoder for PCG and ECG
+    - {{[[TODO]]}} Bio motivation from human translation
+- :hiccup [:hr {:style {:borderColor "#bfccd6" :margin "0.75em 0em 0"}}]
+- Physician Examination
+    - POI
+        - Erb's point
+            - Both Pathologically and Physiological heart sounds are heard
+            - **Heart Rate**
+                - compared to other pulse to detect **pulse deficit**
+        - Aortic valve
+            - 2nd Intercostal space
+            - Right sternal border
+        - Pulmonary valve
+            - 2nd intercostal space
+            - left sternal border
+        - Tricuspid valve
+            - 4th intercostal space
+            - right sternal border
+        - Mitral Valve
+            - 5th intercostal space
+            - midclavicular
+    - Hold breath while recording
+        - reducing the noise caused by the lungs
+    - Locate using the jugular notch and sternal angle
+    - ![](https://firebasestorage.googleapis.com/v0/b/firescript-577a2.appspot.com/o/imgs%2Fapp%2Fkendreaditya%2FpjD0Uyv06x.png?alt=media&token=80cb8419-f714-44e0-8a2e-c074972c5642)
+- Topics to include
+    - Metrics
+        - https://en.wikipedia.org/wiki/Confusion_matrix
+    - ![](https://firebasestorage.googleapis.com/v0/b/firescript-577a2.appspot.com/o/imgs%2Fapp%2Fkendreaditya%2Fl5Y-N1-gKY.png?alt=media&token=a94328ad-0ea6-4ad7-a806-b3e831910210)
+    - file:///C:/Users/kendr/Downloads/Ramesh_Krithik_STS_.pdf
+    - file:///C:/Users/kendr/Downloads/Ramesh_Krithik_STS-min.pdf
+    - Rubric
+        - I. Research Problem (10 pts)
+___ description of a practical need or problem to be solved
+___ definition of criteria for proposed solution
+___ explanation of constraints
+II. Design and Methodology (15 pts)
+___ exploration of alternatives to answer need or problem
+___ identification of a solution
+___ development of a prototype/model
+III. Execution: Construction and Testing(20 pts)
+___ prototype demonstrates intended design
+___ prototype has been tested in multiple conditions/trials
+___ prototype demonstrates engineering skill and completeness
+    - Introduction
+        - As part of any routine physical exam, a healthcare provider will listen to a patients’ heart with a stethoscope. This procedure – cardiac auscultation – is a 200+ year old method to screen for heart defects, and requires the examining provider to have acute hearing and extensive experience. Traditional cardiac auscultation relies 100% on the subjective interpretation of heart sounds by the examiner. An accurate diagnosis remains challenging for reasons including faint heart sounds, noise, breathing, high heart rates, and having to distinguish innocent from pathological murmurs.
+        - **stats about how many arrhiymse get mis diognisted each year**
+        - **effect of late surgury**
+        - future health care will be automated
+        - Rural communities with limited medical device technologies available, both foreign and domestic.
+        - Telemedicine (increasing in popularity post-pandemic).
+        - Integration with other "health" apps: Apple Health, Fitbit, Whoop, MyFitnessPal, etc.Watch-out: HIPPA violations.
+            - I recall during my time at J&J they were developing an external piece of hardware you could attach to your smartphone camera which would turn it into an otoscope. Then you would scope your own ear, the tech would take and analyze the images and tell you of any medical issues in your ear like inflammation, infection, etc. I think other companies beyond J&J may have similar products. This arrhythmia detection app to me sounds like it would be in the same ballpark, so perhaps you could piggy-back off commentary those companies have published.
+    - Related works
+    - Goals
+        - create segmentation network for postion of mic/phone with accurayc in mm
+        - real world testing
+    - realted works
+    - Experimetal Design
+        - Theoretically
+        - Experimentally
+        - Implementation
+        - Practical Applications
+    - Methodology
+        - explanation of arcatucitures
+            - cnn
+            - rnn
+            - **bilstm**
+            - **transfomer**
+        - go into detail about apporach
+            - localization
+            - segmentation
+            - prediction
+            - seq2seq
+        - Dataset 
+            - https://sci-hub.se/https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7199391/
+            - http://www.peterjbentley.com/heartchallenge/
+            - distrubtion
+            - patient anylisys
+            - map of location of patient recorrdings 
+        - Divided into implamentation and intagration/application (add content in ppt chart)
+        - walk through end to end process
+        - file:///K:/OneDrive%20-%20Cumberland%20Valley%20School%20District/Education/Activates/Science%20Fair/PCG-Science-Fair/papers/2004.03712.pdf
+        - ![](https://firebasestorage.googleapis.com/v0/b/firescript-577a2.appspot.com/o/imgs%2Fapp%2Fkendreaditya%2FDN9s1raF9K.png?alt=media&token=191fdc40-1dbd-4523-bfd9-5a12b0688858)
+        - ![](https://firebasestorage.googleapis.com/v0/b/firescript-577a2.appspot.com/o/imgs%2Fapp%2Fkendreaditya%2FHZWvjTPE9w.png?alt=media&token=c401ae0f-cfed-4c3b-99db-38fd87de3e3c) [here](https://towardsdatascience.com/dimensionality-reduction-for-data-visualization-pca-vs-tsne-vs-umap-be4aa7b1cb29)
+    - Results
+        - dense layer visualization
+        - test against benchmarks
+            - https://github.com/irhythm/irhythm.github.io/tree/master/cardiol_test_set
+            - that paper with mulitple arruthmiyas but a singel singal for each in herat soudns 
+        - add prototyping
+            - net a
+            - net b
+            - net c
+            - **Model B**
+                - **Designing and Concept Sketeches**
+                - **Constructing**
+                - **Issues & Redesigning**
+            - [paper](K:/OneDrive%20-%20Cumberland%20Valley%20School%20District/Education/Activates/Science%20Fair/PCG-Science-Fair/papers/10.1007@s13246-020-00851-w.pdf)
+        - Heart location sigmnation
+        - class acitvation maps
+        - heart landmark positioning with mm accuarcy
+- {{[[DONE]]}} Similar Products
+    - Steth IO
+        - Only detect heart murmurs
+        - Needs an external case that costs $300 
+    - Eko by Littmann 3M
+        - Only detects heart murmurs cost $50 monthly
+            - Eko detects heart murmurs with 87% sensitivity and 87% specificity—so you can quickly determine what follow-up is needed.
+            - [picture](https://assets-global.website-files.com/5fd5725abb814e469c3f0ce8/6033f3209619ad40e8874582_core-slide-04-min.png)
+        - requires external stethoscope that costs $350
+            -  while introducing no new fueatures
+    - Apple Watch cost $400
+        - only detects: Atrial Fib/Flutter and Sinus rhythmus
+        - low PPV value
+        - The specificity of an ECG (its ability to correctly identify people who don’t have AF) is around 90 percent.
+        - ![Image](https://pbs.twimg.com/media/DnZtiLRWwAAkvrY?format=jpg&name=small)
+        - [Twitter](https://twitter.com/venkmurthy/status/1042112214428200961)
+    - eMurmur AI
+        - Clinically observed sensitivity: 85.0% Clinically observed specificity: 86.7%
+        - accuracy rate of over 85%
+        - Still in early development
+    - iStethoscope Pro
+        - Released over a decade ago, the app only recordings sounds and does not analyze them
+    - ![](https://firebasestorage.googleapis.com/v0/b/firescript-577a2.appspot.com/o/imgs%2Fapp%2Fkendreaditya%2FP6I3EIgBZK.png?alt=media&token=74b43e22-20ae-4f90-8427-63b8c6eb6196)
+- what do physician look for in while analysing heart sounds
+    - Walk me through what you check for while using the sethoscope that is heart realted.
+    - Do you check for arrhythmias murmurs?
+    - Do you use any diagnostic-aid? Is it helpful? 
+    - Heart Rate?
+    - S1 and S2?
+    - Feature to implament
+        - premature beats are atrial or ventricular
+- Poke holes in existing methods
+- Add location guider with augmetation reality
+- Net A, Net B, Net C in reserach paper
+- Spectrogram [paper](https://sci-hub.se/https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1899182/)
+    - http://cardiacauscultation.com/2page.htm
+- Video demonstration
+    - ![](https://camo.githubusercontent.com/7069388b98f7028700991232b01e77efb55838c29341df5776125448665f6908/68747470733a2f2f332e62702e626c6f6773706f742e636f6d2f2d3350626a5f64767430566f2f562d71652d4e6c365035492f41414141414141414251632f7a305f365774565774764152744d6b3069395f41744c6579794779563641493477434c63422f73313630302f6e6d742d6d6f64656c2d666173742e676966)

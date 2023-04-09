@@ -1,0 +1,27 @@
+\documentclass[border=0.125cm]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\begin{document}
+
+\begin{center}
+\begin{tikzpicture}
+	\node[circle, draw, thick] (z) {$\vec{z}$};
+	\node[circle, draw, thick, right=5em of z] (x) {$\vec{x}_{fake}$};
+	\draw[-stealth, thick] (z) -- node[above] {$G(\vec{z})$} node[below] {Generator} (x);
+	\node[left=of z] (i) {};
+	\node[above=of x, circle, draw, thick] (xt) {$\vec{x}_{real}$};
+	\node[left=5em of xt] (it) {};
+	\draw[-stealth, thick] (it) -- node[above] {$\mathcal{D}(\vec{x})$} node[below] {Dataset} (xt);
+	\node[circle, draw, thick, right=5em of x, yshift=2.5em] (D) {$\vec{x}$};
+    \node[circle, scale=0.80, draw, thick, right=7em of D] (out) {$\vec{\hat{y}}$};
+	\draw[-stealth, thick] (D) -- node[above] {$D(\vec{x})$} node[below] {Discriminator} (out);
+	\node[right=2.5em of x, circle, fill, inner sep=0.15em] (pt1) {};
+	\node[right=2.5em of xt, circle, fill, inner sep=0.15em] (pt2) {};
+	\draw[dashed, thick] (pt1) edge[bend left] (pt2);
+	\node[circle, draw, thick, fill=white, inner sep=0.15em] at ([xshift=-0.9em, yshift=4em]pt1.north) (pt3) {};
+	\draw[-stealth, thick] (x) -- (pt1);
+	\draw[-stealth, thick] (xt) -- (pt2);
+	\draw[-stealth, thick] (pt3) -- (D);
+\end{tikzpicture}
+\end{center}
+\end{document}

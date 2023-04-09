@@ -1,0 +1,119 @@
+Delivered-To: kendreaditya@gmail.com
+Received: by 2002:a05:6a10:6154:0:0:0:0 with SMTP id y20csp1521935pxc;
+        Fri, 26 Mar 2021 15:41:22 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxBuT+NDp78ewvmvtX/jin1mxQQ/JVPL7R4lzXvamw13ku/VBFAQ7EToimw7EI0ahhJ3WBJ
+X-Received: by 2002:a05:6e02:b2b:: with SMTP id e11mr3330162ilu.149.1616798482212;
+        Fri, 26 Mar 2021 15:41:22 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1616798482; cv=none;
+        d=google.com; s=arc-20160816;
+        b=f+GeudJZnnC5YFzmqO8/YB5eBwQq8B06UEVA+n0Vdm7Q5PaeJReP6ZuHVrftyxBkju
+         KPyWbkVJvFPfUI1OGHd3oFR0GJMtd1ftBnVlt65c9EOkBVGFW107fajHObzgA5jiM5kg
+         cqatGo8Uq71EwAa1qCsGDNGja0EZb/xVb0K7hItwJLC8tMc5ZdK4yRxsCzPhmZPgHICC
+         CNlYYo6CmHO79UJvehHOsGLgK7QNn6Hv1zOipz/3Y2vKddhXn4rTDjOEuoeJyFfful9T
+         q/NhtsoOAvGX4njueLdtnUGZAkU1Sx4SIvP0oF8tzTNLLcYXoiyHSo0MIGMJSGRxRnd1
+         NB0Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=cc:to:subject:message-id:mime-version:from:date:dkim-signature;
+        bh=Pvcd4L140sXNPM5ZrUxw8IoJQDk/SftavyIoNNHFsSM=;
+        b=XWhDAkRmpPREcCjbfgd5WmbkP1IInTjMJRJ3Ths7dBU8VQ24cReVOMkZ/OjeMwqzK6
+         DdusPrHxEXrgzG8qJJeHbERQkXupVWAFbRg4qGrnYVFL4CHVPnehCPASuH+AznJaCpmG
+         Aie1GVJ9gvP5ek8AItKDK7E4csVgkRYEbU5M2ZtzwQsEnR/oHbEC1DVMcPbcu4CV1c3c
+         uu1dCi3mhR/OdyLadlh8dvnxRCqnyNjYNaAGmpdrVczc5X4saxVvS6MrgiHZ6pF9Cqgm
+         TzOBGEezDYkhzHKBmZzWIJQ4+JWLSC4r7Tjf378PZI/r2zeeq8K8H8SG52+9jrxrDw2N
+         cu/w==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@sendgrid.net header.s=smtpapi header.b=cZz0dA+O;
+       spf=pass (google.com: domain of bounces+9156393-8735-kendreaditya=gmail.com@sendgrid.net designates 149.72.128.29 as permitted sender) smtp.mailfrom="bounces+9156393-8735-kendreaditya=gmail.com@sendgrid.net"
+Return-Path: <bounces+9156393-8735-kendreaditya=gmail.com@sendgrid.net>
+Received: from wrqvvhkd.outbound-mail.sendgrid.net (wrqvvhkd.outbound-mail.sendgrid.net. [149.72.128.29])
+        by mx.google.com with ESMTPS id z23si7898467iod.32.2021.03.26.15.41.21
+        for <kendreaditya@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 26 Mar 2021 15:41:22 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+9156393-8735-kendreaditya=gmail.com@sendgrid.net designates 149.72.128.29 as permitted sender) client-ip=149.72.128.29;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@sendgrid.net header.s=smtpapi header.b=cZz0dA+O;
+       spf=pass (google.com: domain of bounces+9156393-8735-kendreaditya=gmail.com@sendgrid.net designates 149.72.128.29 as permitted sender) smtp.mailfrom="bounces+9156393-8735-kendreaditya=gmail.com@sendgrid.net"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.net;
+	h=content-type:from:mime-version:subject:x-feedback-id:to:cc;
+	s=smtpapi; bh=Pvcd4L140sXNPM5ZrUxw8IoJQDk/SftavyIoNNHFsSM=;
+	b=cZz0dA+OcM68dDR5WcmU4d/P607T/4+yNGqWxoMFdTXqs49ini0YDAn0tUxf5Vmatl8S
+	5kEMlEQ6L/bZK2p2EpYDW77XcRkS4iFj/Y8YXgV9cdGAu6k6IYZ9cQWBU6haXSgWAG28BS
+	5ev+38wY+SPJrbgepe90y2iAd9l5kiPqM=
+Received: by filterdrecv-p3mdw1-85cc49d4fc-sdxn6 with SMTP id filterdrecv-p3mdw1-85cc49d4fc-sdxn6-18-605E6311-20
+        2021-03-26 22:41:21.465560234 +0000 UTC m=+274095.357996041
+Received: from OTE1NjM5Mw (unknown)
+	by ismtpd0178p1mdw1.sendgrid.net (SG)
+	with HTTP
+	id iJgJxrswQNm_V-4uhxs3-g
+	Fri, 26 Mar 2021 22:41:21.464 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=fc7c18566a688e1b0e7501d9baabf4e7bcc177c324d9448bd47a4e0a1c5d
+Date: Fri, 26 Mar 2021 22:41:21 +0000 (UTC)
+From: isef@societyforscience.org
+Mime-Version: 1.0
+Message-ID: <iJgJxrswQNm_V-4uhxs3-g@ismtpd0178p1mdw1.sendgrid.net>
+Subject: Virtual Regeneron ISEF 2021 - Project ID Assigned
+X-Feedback-ID: 9156393:SG
+X-SG-EID: 
+ =?us-ascii?Q?SfwbP1v0Z9TUMBBXcEEQohVag7YeR7qIZUurni6rqhYiQpIWOPaUTg0M=2FzU+S6?=
+ =?us-ascii?Q?aTbZCbHSW=2FVLd8WnNBM17h+Nq3AJAZWsjRcKoA+?=
+ =?us-ascii?Q?1w5c0XRiYCR=2FmBEbDVcNIAQ4wct3u=2FT2xCloTEG?=
+ =?us-ascii?Q?SV=2FJzSn7ofEGP12OQfKyeWoqjVPmhhiLpz3NGe5?=
+ =?us-ascii?Q?h3vghCz9dOzQUOhZ1gpzesdYbkzWp9gaM6O3Xi+?=
+ =?us-ascii?Q?488638D9=2FZYLksuS0=3D?=
+To: kendreaditya@gmail.com
+Cc: director@casef.org
+X-Entity-ID: 29ckQdR/SApsU3/MacmiVg==
+
+--fc7c18566a688e1b0e7501d9baabf4e7bcc177c324d9448bd47a4e0a1c5d
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Mime-Version: 1.0
+
+<p>Thank you for submitting your paperwork for the upcoming Virtual Regener=
+on International Science and Engineering Fair (Virtual Regeneron ISEF). You=
+r paperwork has been sent forward to the Virtual Regeneron ISEF Scientific =
+Review Committee for their review. If there are missing items or questions,=
+ you will receive an email request. Please be prompt in responding to such =
+inquiries.</p><p>Listed below are your fair ID number, your project ID numb=
+er, and your project category for the Virtual Regeneron ISEF 2021. Please w=
+rite down and keep this information for future reference at the Virtual Reg=
+eneron ISEF.<br /><ul><li>Finalist: Aditya Kendre</li><li>Fair ID: USPA01</=
+li><li>Project ID: ENBM035</li><li>Category: Biomedical Engineering/Biomedi=
+cal Sensors and Imaging</li></ul><p>As you prepare for the week, we encoura=
+ge you to check back to the https://u9156393.ct.sendgrid.net/ls/click?upn=
+=3DH-2F1Xmw3hfsolmlNCpOa5L2HUz95I5zmRdsUV1HLqFadSXC5LIhDWGF35JQBSHk-2BA_xlE=
+_XAVzPhIw1BKmr5eOCItGzSwzNntQKVw0ujzm8BymIvaXslploeoBH0uQbcGO0WTKH3lN9BmIB5=
+JXtnZVcWDhKbwq-2BYA3TGYvBqzuq-2FYu2h-2FevmDQyafFI-2Boi4Ez4TGoL-2Bkvgn228azR=
+9BMSr5Xw7uuOmxrS-2BZ3BxK3K8ydayJL8G97smW-2BHPLu8WuVZ5zJX81TQRAD0toDKqIsViue=
+mwFdFJfPNI56CElryj08djH-2B4-3D page for the latest information.</p><p>Congr=
+atulations on your selection as a Virtual Regeneron ISEF Finalist!</p>
+--fc7c18566a688e1b0e7501d9baabf4e7bcc177c324d9448bd47a4e0a1c5d
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=us-ascii
+Mime-Version: 1.0
+
+<p>Thank you for submitting your paperwork for the upcoming Virtual Regener=
+on International Science and Engineering Fair (Virtual Regeneron ISEF). You=
+r paperwork has been sent forward to the Virtual Regeneron ISEF Scientific =
+Review Committee for their review. If there are missing items or questions,=
+ you will receive an email request. Please be prompt in responding to such =
+inquiries.</p><p>Listed below are your fair ID number, your project ID numb=
+er, and your project category for the Virtual Regeneron ISEF 2021. Please w=
+rite down and keep this information for future reference at the Virtual Reg=
+eneron ISEF.<br /><ul><li>Finalist: Aditya Kendre</li><li>Fair ID: USPA01</=
+li><li>Project ID: ENBM035</li><li>Category: Biomedical Engineering/Biomedi=
+cal Sensors and Imaging</li></ul><p>As you prepare for the week, we encoura=
+ge you to check back to the https://www.societyforscience.org/isef/ page fo=
+r the latest information.</p><p>Congratulations on your selection as a Virt=
+ual Regeneron ISEF Finalist!</p><img src=3D"https://u9156393.ct.sendgrid.ne=
+t/wf/open?upn=3DfAOoa-2BiInX9FrQL4NRQPgOIGO03aY-2BdpV-2BOAPtzcLo-2BifBf3ebF=
+VW73-2BCIaGni1RwH0JVL58w6ncv5gwZ0NPLkgv8d9m2d1qkoBy9HYQqxyHBqMSjQ8xGV-2FfRU=
+a1yc2eJHOxA8pEzVbOyhviQgys1b26P6C1e-2Fosj3AKhXGqUlQJmFihEEFPxSWo5oOHFTNJtKf=
+NNpv33tG7NB7LDrUZ4RkZZ5jOXolSR9q51FB-2BkaA-3D" alt=3D"" width=3D"1" height=
+=3D"1" border=3D"0" style=3D"height:1px !important;width:1px !important;bor=
+der-width:0 !important;margin-top:0 !important;margin-bottom:0 !important;m=
+argin-right:0 !important;margin-left:0 !important;padding-top:0 !important;=
+padding-bottom:0 !important;padding-right:0 !important;padding-left:0 !impo=
+rtant;"/>
+--fc7c18566a688e1b0e7501d9baabf4e7bcc177c324d9448bd47a4e0a1c5d--
